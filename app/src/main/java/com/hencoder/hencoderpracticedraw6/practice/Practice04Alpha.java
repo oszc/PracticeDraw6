@@ -13,6 +13,7 @@ import com.hencoder.hencoderpracticedraw6.R;
 public class Practice04Alpha extends RelativeLayout {
     Button animateBt;
     ImageView imageView;
+    private int mStatus = 0;
 
     public Practice04Alpha(Context context) {
         super(context);
@@ -37,6 +38,14 @@ public class Practice04Alpha extends RelativeLayout {
             @Override
             public void onClick(final View v) {
                 // TODO 在这里处理点击事件，通过 View.animate().alpha() 来改变 View 的透明度
+
+                if(mStatus==0){
+                    imageView.animate().alpha(0.1f);
+                }else if(mStatus==1){
+                    imageView.animate().alpha(1.0f);
+                }
+                mStatus = ++mStatus%2;
+
             }
         });
     }
